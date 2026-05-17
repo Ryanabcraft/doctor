@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Project Dotcor e um plugin para Codex que diagnostica projetos locais e mostra como rodar, testar e corrigir."
+    />
+    <meta property="og:title" content="Project Dotcor" />
+    <meta
+      property="og:description"
+      content="Diagnostico rapido para qualquer projeto no Codex."
+    />
+    <meta property="og:type" content="website" />
+    <title>Project Dotcor - Plugin para Codex</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Topo">
+      <a class="brand" href="#top" aria-label="Project Dotcor inicio">
+        <img src="assets/favicon.svg" alt="" />
+        <span>Project Dotcor</span>
+      </a>
+      <nav aria-label="Navegacao principal">
+        <a href="#install">Instalar</a>
+        <a href="#use">Usar</a>
+        <a href="#publish">Publicar</a>
+        <a href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Plugin local + marketplace Git</p>
+          <h1>Diagnostico de projeto, sem adivinhacao.</h1>
+          <p class="lead">
+            Project Dotcor ensina o Codex a ler qualquer pasta, detectar a stack,
+            encontrar arquivos importantes e sugerir os comandos certos para rodar,
+            testar, buildar e corrigir.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#install">Instalar agora</a>
+            <a class="button ghost" href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">Abrir GitHub</a>
+          </div>
+        </div>
+
+        <div class="plugin-window" aria-label="Previa do plugin Project Dotcor">
+          <div class="window-top">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="plugin-mark">
+            <img src="assets/favicon.svg" alt="" />
+            <div>
+              <strong>Project Dotcor</strong>
+              <small>Diagnose any local project</small>
+            </div>
+          </div>
+          <div class="prompt-card">Use Project Doctor para diagnosticar este projeto.</div>
+          <div class="prompt-card">Find how to run, test, and build this workspace.</div>
+          <div class="info-grid">
+            <span>Skill</span>
+            <strong>Project Doctor</strong>
+            <span>Recursos</span>
+            <strong>Interactive, Read</strong>
+            <span>Fonte</span>
+            <strong>Ryan Local Plugins</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="strip" aria-label="Recursos">
+        <div>
+          <strong>Detecta stack</strong>
+          <span>Node, Python, .NET, Android, static web</span>
+        </div>
+        <div>
+          <strong>Mostra comandos</strong>
+          <span>install, dev, test, build e checks leves</span>
+        </div>
+        <div>
+          <strong>Acha problemas</strong>
+          <span>env faltando, logs, portas e dependencias</span>
+        </div>
+      </section>
+
+      <section id="install" class="section two-col">
+        <div>
+          <p class="eyebrow">Instalacao</p>
+          <h2>Adicione o marketplace no Codex.</h2>
+          <p>
+            Cole este bloco no arquivo <code>C:\Users\SEU_USUARIO\.codex\config.toml</code>,
+            reinicie o Codex e procure por <strong>Project Dotcor</strong> na tela de plugins.
+          </p>
+        </div>
+        <div class="code-panel">
+          <button class="copy" data-copy="install-code">Copiar</button>
+          <pre id="install-code"><code>[marketplaces.ryan-plugins]
+source_type = "git"
+source = "https://github.com/Ryanabcraft/project-dotcor-marketplace.git"</code></pre>
+        </div>
+      </section>
+
+      <section id="use" class="section">
+        <p class="eyebrow">Como usar</p>
+        <h2>Chame a skill dentro de qualquer projeto.</h2>
+        <div class="cards">
+          <article>
+            <span>01</span>
+            <h3>Abra uma pasta</h3>
+            <p>Entre no projeto que voce quer analisar pelo Codex.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Peça o diagnostico</h3>
+            <p>Use uma frase natural para acionar o Project Doctor.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Execute o plano</h3>
+            <p>Receba comandos concretos e os proximos passos para corrigir.</p>
+          </article>
+        </div>
+        <div class="code-panel wide">
+          <button class="copy" data-copy="use-code">Copiar</button>
+          <pre id="use-code"><code>Use Project Doctor para diagnosticar este projeto.
+Me diga como rodar, testar, buildar e corrigir esta pasta.</code></pre>
+        </div>
+      </section>
+
+      <section id="publish" class="section two-col accent">
+        <div>
+          <p class="eyebrow">Publicacao</p>
+          <h2>Quer compartilhar com outras pessoas?</h2>
+          <p>
+            O plugin ja esta em um marketplace Git publico. Quem instalar esse
+            marketplace recebe o Project Dotcor na lista de plugins do Codex.
+          </p>
+          <a class="button primary dark" href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">Ver repositorio</a>
+        </div>
+        <div class="publish-card">
+          <span>Repositorio</span>
+          <strong>Ryanabcraft/project-dotcor-marketplace</strong>
+          <span>URL</span>
+          <a href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">github.com/Ryanabcraft/project-dotcor-marketplace</a>
+          <span>Status</span>
+          <strong>Publico</strong>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Project Dotcor</span>
+      <a href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">GitHub</a>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite">Copiado.</div>
+    <script src="script.js"></script>
+  </body>
+</html>
