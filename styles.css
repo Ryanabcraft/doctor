@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --ink: #111315;
   --muted: #5e646c;
   --line: #d8dde3;
@@ -501,4 +501,18 @@ footer {
   .publish-card {
     grid-template-columns: 1fr;
   }
+}
+
+.note-band {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: #fffaf0;
+}
+
+.note-band h2 {
+  max-width: 780px;
+}
+
+.note-band p:last-child {
+  max-width: 820px;
 }

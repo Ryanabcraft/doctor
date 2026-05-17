@@ -1,11 +1,12 @@
-param(
+﻿param(
   [switch]$DryRun
 )
 
 $ErrorActionPreference = "Stop"
 
 $marketplaceName = "ryan-plugins"
-$pluginName = 'project-dotcor@ryan-plugins'
+$preferredPluginName = 'project-dotcor@ryan-plugins'
+$pluginSlug = "project-dotcor"
 $repoUrl = "https://github.com/Ryanabcraft/project-dotcor-marketplace.git"
 $codexDir = Join-Path $env:USERPROFILE ".codex"
 $configPath = Join-Path $codexDir "config.toml"
@@ -30,6 +31,17 @@ function Add-BlockIfMissing {
   return $Content.TrimEnd() + [Environment]::NewLine + [Environment]::NewLine + $Block.Trim() + [Environment]::NewLine
 }
 
+function Get-EnabledProjectDotcorPlugin {
+  param([string]$Content)
+
+  $matches = [regex]::Matches($Content, '(?ms)^\[plugins\."(project-dotcor@[^"]+)"\]\s*enabled\s*=\s*true\s*$')
+  if ($matches.Count -gt 0) {
+    return $matches[0].Groups[1].Value
+  }
+
+  return $null
+}
+
 Write-Host ""
 Write-Host "Project Dotcor installer" -ForegroundColor Cyan
 Write-Host "------------------------" -ForegroundColor Cyan
@@ -49,22 +61,30 @@ if (Test-Path -Path $configPath) {
   Write-Host "Config ainda nao existe, vou criar: $configPath"
 }
 
-$marketplaceBlock = @"
+$alreadyEnabledPlugin = Get-EnabledProjectDotcorPlugin -Content $current
+
+if ($alreadyEnabledPlugin) {
+  Write-Host "Project Dotcor ja esta instalado e ativado como: $alreadyEnabledPlugin" -ForegroundColor Green
+  Write-Host "Nao vou duplicar a entrada do plugin."
+  $updated = $current
+} else {
+  $marketplaceBlock = @"
 [marketplaces.$marketplaceName]
 source_type = "git"
 source = "$repoUrl"
 "@
 
-$pluginBlock = @"
-[plugins."$pluginName"]
+  $pluginBlock = @"
+[plugins."$preferredPluginName"]
 enabled = true
 "@
 
-$updated = Add-BlockIfMissing -Content $current -Header "[marketplaces.$marketplaceName]" -Block $marketplaceBlock
-$updated = Add-BlockIfMissing -Content $updated -Header "[plugins.`"$pluginName`"]" -Block $pluginBlock
+  $updated = Add-BlockIfMissing -Content $current -Header "[marketplaces.$marketplaceName]" -Block $marketplaceBlock
+  $updated = Add-BlockIfMissing -Content $updated -Header "[plugins.`"$preferredPluginName`"]" -Block $pluginBlock
+}
 
 if ($updated -eq $current -and (Test-Path -Path $configPath)) {
-  Write-Host "Project Dotcor ja estava configurado." -ForegroundColor Green
+  Write-Host "Nenhuma alteracao necessaria." -ForegroundColor Green
 } else {
   if (Test-Path -Path $configPath) {
     Write-Host "Backup: $backupPath"
