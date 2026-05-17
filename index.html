@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Project Dotcor e um plugin para Codex que diagnostica projetos locais e mostra como rodar, testar e corrigir."
+      content="Project Doctor e um plugin para Codex que diagnostica projetos locais e mostra como rodar, testar e corrigir."
     />
-    <meta property="og:title" content="Project Dotcor" />
+    <meta property="og:title" content="Project Doctor" />
     <meta
       property="og:description"
       content="Diagnostico rapido para qualquer projeto no Codex."
     />
     <meta property="og:type" content="website" />
-    <title>Project Dotcor - Plugin para Codex</title>
+    <title>Project Doctor - Plugin para Codex</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header" aria-label="Topo">
-      <a class="brand" href="#top" aria-label="Project Dotcor inicio">
+      <a class="brand" href="#top" aria-label="Project Doctor inicio">
         <img src="assets/favicon.svg" alt="" />
-        <span>Project Dotcor</span>
+        <span>Project Doctor</span>
       </a>
       <nav aria-label="Navegacao principal">
         <a href="#install">Instalar</a>
         <a href="#use">Usar</a>
         <a href="#publish">Publicar</a>
-        <a href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/Ryanabcraft/project-doctor-marketplace" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </header>
 
@@ -37,17 +37,17 @@
           <p class="eyebrow">Plugin local + marketplace Git</p>
           <h1>Diagnostico de projeto, sem adivinhacao.</h1>
           <p class="lead">
-            Project Dotcor ensina o Codex a ler qualquer pasta, detectar a stack,
+            Project Doctor ensina o Codex a ler qualquer pasta, detectar a stack,
             encontrar arquivos importantes e sugerir os comandos certos para rodar,
             testar, buildar e corrigir.
           </p>
           <div class="actions">
             <a class="button primary" href="#install">Instalar agora</a>
-            <a class="button ghost" href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">Abrir GitHub</a>
+            <a class="button ghost" href="https://github.com/Ryanabcraft/project-doctor-marketplace" target="_blank" rel="noreferrer">Abrir GitHub</a>
           </div>
         </div>
 
-        <div class="plugin-window" aria-label="Previa do plugin Project Dotcor">
+        <div class="plugin-window" aria-label="Previa do plugin Project Doctor">
           <div class="window-top">
             <span></span>
             <span></span>
@@ -56,7 +56,7 @@
           <div class="plugin-mark">
             <img src="assets/favicon.svg" alt="" />
             <div>
-              <strong>Project Dotcor</strong>
+              <strong>Project Doctor</strong>
               <small>Diagnose any local project</small>
             </div>
           </div>
@@ -100,7 +100,7 @@
         </div>
         <div class="code-panel">
           <button class="copy" data-copy="quick-install-code">Copiar</button>
-          <pre id="quick-install-code"><code>powershell -c "irm https://ryanabcraft.github.io/dotcor/install.ps1|iex"</code></pre>
+          <pre id="quick-install-code"><code>powershell -c "irm https://ryanabcraft.github.io/doctor/install.ps1|iex"</code></pre>
         </div>
       </section>
 
@@ -109,7 +109,7 @@
         <p class="eyebrow">Ja veio instalado?</p>
         <h2>Sem entrada duplicada.</h2>
         <p>
-          Se o Project Dotcor ja estiver instalado e ativado por outro marketplace,
+          Se o Project Doctor ja estiver instalado e ativado por outro marketplace,
           o instalador reconhece isso, mostra o nome encontrado e nao cria outra
           entrada no <code>config.toml</code>.
         </p>
@@ -121,14 +121,14 @@
           <h2>Ou adicione no config.</h2>
           <p>
             Cole este bloco no arquivo <code>C:\Users\SEU_USUARIO\.codex\config.toml</code>,
-            reinicie o Codex e procure por <strong>Project Dotcor</strong> na tela de plugins.
+            reinicie o Codex e procure por <strong>Project Doctor</strong> na tela de plugins.
           </p>
         </div>
         <div class="code-panel">
           <button class="copy" data-copy="install-code">Copiar</button>
           <pre id="install-code"><code>[marketplaces.ryan-plugins]
 source_type = "git"
-source = "https://github.com/Ryanabcraft/project-dotcor-marketplace.git"</code></pre>
+source = "https://github.com/Ryanabcraft/project-doctor-marketplace.git"</code></pre>
         </div>
       </section>
 
@@ -165,15 +165,15 @@ Me diga como rodar, testar, buildar e corrigir esta pasta.</code></pre>
           <h2>Quer compartilhar com outras pessoas?</h2>
           <p>
             O plugin ja esta em um marketplace Git publico. Quem instalar esse
-            marketplace recebe o Project Dotcor na lista de plugins do Codex.
+            marketplace recebe o Project Doctor na lista de plugins do Codex.
           </p>
-          <a class="button primary dark" href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">Ver repositorio</a>
+          <a class="button primary dark" href="https://github.com/Ryanabcraft/project-doctor-marketplace" target="_blank" rel="noreferrer">Ver repositorio</a>
         </div>
         <div class="publish-card">
           <span>Repositorio</span>
-          <strong>Ryanabcraft/project-dotcor-marketplace</strong>
+          <strong>Ryanabcraft/project-doctor-marketplace</strong>
           <span>URL</span>
-          <a href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">github.com/Ryanabcraft/project-dotcor-marketplace</a>
+          <a href="https://github.com/Ryanabcraft/project-doctor-marketplace" target="_blank" rel="noreferrer">github.com/Ryanabcraft/project-doctor-marketplace</a>
           <span>Status</span>
           <strong>Publico</strong>
         </div>
@@ -181,14 +181,15 @@ Me diga como rodar, testar, buildar e corrigir esta pasta.</code></pre>
     </main>
 
     <footer>
-      <span>Project Dotcor</span>
-      <a href="https://github.com/Ryanabcraft/project-dotcor-marketplace" target="_blank" rel="noreferrer">GitHub</a>
+      <span>Project Doctor</span>
+      <a href="https://github.com/Ryanabcraft/project-doctor-marketplace" target="_blank" rel="noreferrer">GitHub</a>
     </footer>
 
     <div class="toast" role="status" aria-live="polite">Copiado.</div>
     <script src="script.js"></script>
   </body>
 </html>
+
 
 
 

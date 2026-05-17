@@ -5,9 +5,10 @@ param(
 $ErrorActionPreference = "Stop"
 
 $marketplaceName = "ryan-plugins"
-$preferredPluginName = 'project-dotcor@ryan-plugins'
-$pluginSlug = "project-dotcor"
-$repoUrl = "https://github.com/Ryanabcraft/project-dotcor-marketplace.git"
+$preferredPluginName = 'project-doctor@ryan-plugins'
+$pluginSlug = "project-doctor"
+$legacyPluginSlug = "project-dotcor"
+$repoUrl = "https://github.com/Ryanabcraft/project-doctor-marketplace.git"
 $codexDir = Join-Path $env:USERPROFILE ".codex"
 $configPath = Join-Path $codexDir "config.toml"
 $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
@@ -31,10 +32,11 @@ function Add-BlockIfMissing {
   return $Content.TrimEnd() + [Environment]::NewLine + [Environment]::NewLine + $Block.Trim() + [Environment]::NewLine
 }
 
-function Get-EnabledProjectDotcorPlugin {
+function Get-EnabledProjectDoctorPlugin {
   param([string]$Content)
 
-  $matches = [regex]::Matches($Content, '(?ms)^\[plugins\."(project-dotcor@[^"]+)"\]\s*enabled\s*=\s*true\s*$')
+  $pattern = '(?ms)^\[plugins\."((?:project-doctor|project-dotcor)@[^"]+)"\]\s*enabled\s*=\s*true\s*$'
+  $matches = [regex]::Matches($Content, $pattern)
   if ($matches.Count -gt 0) {
     return $matches[0].Groups[1].Value
   }
@@ -43,7 +45,7 @@ function Get-EnabledProjectDotcorPlugin {
 }
 
 Write-Host ""
-Write-Host "Project Dotcor installer" -ForegroundColor Cyan
+Write-Host "Project Doctor installer" -ForegroundColor Cyan
 Write-Host "------------------------" -ForegroundColor Cyan
 
 if (!(Test-Path -Path $codexDir)) {
@@ -61,10 +63,10 @@ if (Test-Path -Path $configPath) {
   Write-Host "Config ainda nao existe, vou criar: $configPath"
 }
 
-$alreadyEnabledPlugin = Get-EnabledProjectDotcorPlugin -Content $current
+$alreadyEnabledPlugin = Get-EnabledProjectDoctorPlugin -Content $current
 
 if ($alreadyEnabledPlugin) {
-  Write-Host "Project Dotcor ja esta instalado e ativado como: $alreadyEnabledPlugin" -ForegroundColor Green
+  Write-Host "Project Doctor ja esta instalado e ativado como: $alreadyEnabledPlugin" -ForegroundColor Green
   Write-Host "Nao vou duplicar a entrada do plugin."
   $updated = $current
 } else {
@@ -101,5 +103,5 @@ if ($updated -eq $current -and (Test-Path -Path $configPath)) {
 
 Write-Host ""
 Write-Host "Instalacao concluida." -ForegroundColor Green
-Write-Host "Agora feche e abra o Codex, depois procure por Project Dotcor em Plugins."
+Write-Host "Agora feche e abra o Codex, depois procure por Project Doctor em Plugins."
 Write-Host ""
